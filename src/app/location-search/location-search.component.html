@@ -1,0 +1,9 @@
+<div id="search-component">
+  <h4><label for="search-box">Search</label></h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let location of locations$ | async">
+      <a [routerLink]="[ '/chart', location.woeid ]">{{location.title}}</a>
+    </li>
+  </ul>
+</div>
