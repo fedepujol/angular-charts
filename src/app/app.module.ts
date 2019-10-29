@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent } from './chart/chart.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatIconModule, MatToolbarModule } from '@angular/material';
+import { MatIconModule, MatToolbarModule, MatInputModule, MatListModule } from '@angular/material';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,12 @@ import { MatIconModule, MatToolbarModule } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule,
+    MatListModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
