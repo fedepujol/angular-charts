@@ -1,0 +1,21 @@
+<div class="horizontal">
+  <div *ngFor="let weather of weathers">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+            {{weather.weather_state_name}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <mat-icon mat-font-icon="fa-cloud" class="fa"></mat-icon>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>{{weather.applicable_date}}</mat-list-item>
+          <mat-list-item> {{weather.max_temp}} </mat-list-item>
+          <mat-list-item> {{weather.min_temp}} </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

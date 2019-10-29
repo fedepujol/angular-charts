@@ -4,30 +4,32 @@ import { Observable, of } from 'rxjs';
 import { Weather } from './domain/weather';
 import * as moment from 'moment';
 import { WeatherLocation } from './domain/WeatherLocation';
+import { Forecast } from './domain/forecast';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
-  private apiUrl = "http://localhost:4200/clima/location/"
+  private climaUrl = "http://localhost:4200/clima/location/"
+  private staticUrl = "http://localhost:4200/svg/"
 
   constructor(private httpClient: HttpClient) { }
 
-  dailyForecast(woeid: Number): Observable<Weather[]> {
-    return this.httpClient.get<Weather[]>(this.apiUrl + woeid + '/')
+  dailyForecast(woeid: Number): Observable<Forecast> {
+    return this.httpClient.get<Forecast>(this.climaUrl + woeid + '/')
   }
 
   forecast(woeid: Number): Observable<Weather[]> {
     let fcast = woeid + '/' + this.getNow()
-    return this.httpClient.get<Weather[]>(this.apiUrl + fcast)
+    return this.httpClient.get<Weather[]>(this.climaUrl + fcast)
   }
 
   searchLocation(term: String): Observable<WeatherLocation[]> {
     if (!term) {
       return of([])
     }
-    return this.httpClient.get<WeatherLocation[]>(this.apiUrl + `search/?query=${term}`)
+    return this.httpClient.get<WeatherLocation[]>(this.climaUrl + `search/?query=${term}`)
   }
 
   private getNow() {

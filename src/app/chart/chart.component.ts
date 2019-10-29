@@ -25,11 +25,11 @@ export class ChartComponent implements OnInit {
 
   getForecast(): void {
     const woeid = +this.route.snapshot.paramMap.get('woeid')
-    this.weatherService.dailyForecast(woeid)
+    this.weatherService.forecast(woeid)
       .toPromise()
       .then(response => {
-        console.log(response.consolidated_weather)
-        response = this.filtrarFechas(response)
+        response = response.reverse()
+        response.map(item => item.normalizeWeather())
         let allTimes = this.getAllTimes(response).reverse()
         this.confDailyTemp(response)
         this.confChart(allTimes)
