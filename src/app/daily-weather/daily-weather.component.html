@@ -3,10 +3,10 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-            {{weather.weather_state_name}}
+          <img class="svg_img" src="{{weather.weather_svg}}" alt="not-found">
         </mat-card-title>
         <mat-card-subtitle>
-          <mat-icon mat-font-icon="fa-cloud" class="fa"></mat-icon>
+          {{weather.weather_state_name}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>

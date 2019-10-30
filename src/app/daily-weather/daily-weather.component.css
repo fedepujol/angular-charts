@@ -1,4 +1,9 @@
 .horizontal {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+
+.svg_img {
+    height: 40%;
+    width: 40%;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Weather } from '../domain/weather';
+import { Weather, SVG_URL } from '../domain/weather';
 import { WeatherService } from '../weather.service';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
@@ -31,6 +31,7 @@ export class DailyWeatherComponent implements OnInit {
           item.min_temp = Math.round(item.min_temp * 10) / 10
           item.created = moment(item.created).format('DD/MM/YYYY')
           item.applicable_date = moment(item.applicable_date).format('DD/MM/YYYY')
+          item.weather_svg = SVG_URL + item.weather_state_abbr + '.svg'
         })
       })
       .catch(e => { console.log(e.message) })

@@ -1,9 +1,10 @@
 <mat-toolbar>
-  <mat-icon fontSet="far" fontIcon="fa-cloud-showers-heavy"></mat-icon>
-  <span>Application Title</span>
-
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
-
-  <span>Right Aligned Text</span>
+  <mat-icon fontSet="fa" fontIcon="fa-home"></mat-icon>
+  <span>App Title</span>
+  <mat-nav-list>
+    <mat-list-item>
+      <span><a [routerLink]="[ '/search' ]">Search</a></span>
+      <mat-divider [vertical]="true"> </mat-divider>
+    </mat-list-item>
+  </mat-nav-list>
 </mat-toolbar>

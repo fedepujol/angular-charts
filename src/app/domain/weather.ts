@@ -1,10 +1,11 @@
 import * as moment from 'moment';
 
+export const SVG_URL: string = 'https://www.metaweather.com/static/img/weather/'
+
 export class Weather {
 
-    constructor() { }
-
     public weather_state_name: string
+    public weather_state_abbr: string
     public wind_direction_compass: string
     public created: string
     public applicable_date: string
@@ -17,26 +18,22 @@ export class Weather {
     public humidity: number
     public visibility: number
     public predictability: number
-    public time: string
+    public weather_svg: string
+
+    constructor() { }
 
     public normalizeWeather() {
         this.normalizeMaxTemp()
         this.normalizeMinTemp()
-        this.normalizeTime()
         this.normalizeDate()
     }
 
     private normalizeMaxTemp() {
-        console.log('hor')
         this.max_temp = Math.round(this.max_temp * 10) / 10
     }
 
     private normalizeMinTemp() {
         this.min_temp = Math.round(this.min_temp * 10) / 10
-    }
-
-    private normalizeTime() {
-        this.time = moment(this.applicable_date).format('HH:00')
     }
 
     private normalizeDate() {

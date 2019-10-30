@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "start": "ng serve --aot --proxy-config proxy.conf.json",
+    "build": "ng build --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.7",
     "@fortawesome/fontawesome-free": "^5.11.2",
     "chart.js": "^2.8.0",
+    "karma-vivaldi-launcher": "0.0.1",
     "momentjs": "^2.0.0",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",

@@ -6,7 +6,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DailyWeatherComponent } from './daily-weather/daily-weather.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'search', component: LocationSearchComponent},
   {path: 'dailyForecast/:woeid', component: DailyWeatherComponent},
