@@ -1,21 +1,39 @@
 <div class="horizontal">
+<!--   <mat-toolbar>
+    <span>{{weather.title}}</span>
+  </mat-toolbar> -->
   <div *ngFor="let weather of weathers">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
           <img class="svg_img" src="{{weather.weather_svg}}" alt="not-found">
         </mat-card-title>
-        <mat-card-subtitle>
-          {{weather.weather_state_name}}
-        </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
-          <mat-list-item>{{weather.applicable_date}}</mat-list-item>
-          <mat-list-item> {{weather.max_temp}} </mat-list-item>
-          <mat-list-item> {{weather.min_temp}} </mat-list-item>
+          <mat-list-item>
+            <span>{{weather.applicable_date}}</span>
+            <span style="padding-left: 0.5em;">
+              <mat-icon fontSet="fa" fontIcon="fa-calendar-alt"></mat-icon>
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span>{{weather.max_temp}}</span>
+            <span style="padding-left: 0.5em;">
+              <mat-icon style="color: #e75050d0;" fontSet="fa" fontIcon="fa-temperature-high"></mat-icon>
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <span>{{weather.min_temp}}</span>
+            <span style="padding-left: 0.5em;">
+              <mat-icon style="color: #2fd3d3d7;" fontSet="fa" fontIcon="fa-temperature-low"></mat-icon>
+            </span>
+          </mat-list-item>
         </mat-list>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button>Details</button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

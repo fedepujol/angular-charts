@@ -7,3 +7,11 @@
     height: 40%;
     width: 40%;
 }
+
+mat-icon .temp_hot {
+    color: #df4343;
+}
+
+mat-icon .temp_cold {
+    color: #55f0f0;
+}

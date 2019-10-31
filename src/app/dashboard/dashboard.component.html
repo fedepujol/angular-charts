@@ -1,10 +1,9 @@
-<mat-toolbar>
-  <mat-icon fontSet="fa" fontIcon="fa-home"></mat-icon>
-  <span>App Title</span>
+<mat-toolbar aria-label="header">
+  <mat-icon id="icon-dash" class="fa-2x" fontSet="fa" fontIcon="fa-sun"></mat-icon>
+  <span>Weather App</span>
   <mat-nav-list>
     <mat-list-item>
-      <span><a [routerLink]="[ '/search' ]">Search</a></span>
-      <mat-divider [vertical]="true"> </mat-divider>
+      <a [routerLink]="[ '/search' ]">Search</a>
     </mat-list-item>
   </mat-nav-list>
 </mat-toolbar>

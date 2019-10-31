@@ -1,16 +1,24 @@
 <div id="search-component">
-  <mat-form-field>
-    <input matInput placeholder="Location Search" 
-      #searchBox id="search-box" 
-      (keyup)="search(searchBox.value)">
-  </mat-form-field>
-  <mat-nav-list>
-    <mat-list-item *ngFor="let location of locations$ | async">
+  <div class="search-form">
+    <mat-form-field>
+      <input matInput placeholder="Location Search" #searchBox id="search-box" (keyup)="search(searchBox.value)">
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let location of locations$ | async">
         <mat-icon fontSet="fa" fontIcon="fa-city"></mat-icon>
-        <a [routerLink]="[ '/dailyForecast', location.woeid ]"> 
+        <a [routerLink]="[ '/dailyForecast', location.woeid ]">
           {{location.title}}, {{location.location_type}}
         </a>
+        <mat-divider [vertical]="true" style="height: 5em;">
+        </mat-divider>
+        <button mat-icon-button>
+          <mat-icon style="color:green" fontSet="fa" fontIcon="fa-plus-circle"></mat-icon>
+        </button>
         <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-nav-list>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
 </div>

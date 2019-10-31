@@ -7,5 +7,6 @@ export class Forecast {
     public consolidated_weather: Weather[]
     public sun_rise: String
     public sun_set: String
+    public parent: string
 
 }

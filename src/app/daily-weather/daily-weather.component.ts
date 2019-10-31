@@ -3,6 +3,7 @@ import { Weather, SVG_URL } from '../domain/weather';
 import { WeatherService } from '../weather.service';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { WeatherLocation } from '../domain/WeatherLocation';
 
 @Component({
   selector: 'app-daily-weather',
@@ -12,6 +13,7 @@ import * as moment from 'moment';
 export class DailyWeatherComponent implements OnInit {
 
   public weathers: Weather[]
+  public locationParent: WeatherLocation
 
   constructor(public weatherService: WeatherService,
     public route: ActivatedRoute) { }
@@ -24,8 +26,8 @@ export class DailyWeatherComponent implements OnInit {
     const woeid = +this.route.snapshot.paramMap.get('woeid')
     this.weatherService.dailyForecast(woeid)
       .toPromise()
-      .then(response => {
-        this.weathers = response.consolidated_weather
+      .then(response => {        
+        this.weathers = response.consolidated_weather 
         this.weathers.map(item => {
           item.max_temp = Math.round(item.max_temp * 10) / 10
           item.min_temp = Math.round(item.min_temp * 10) / 10
