@@ -5,4 +5,5 @@ export class WeatherLocation {
     public title:string
     public location_type: string
     public woeid: number
+    public color: string
 }

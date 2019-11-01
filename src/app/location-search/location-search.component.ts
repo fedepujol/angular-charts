@@ -1,8 +1,9 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { WeatherLocation } from '../domain/WeatherLocation';
+import * as randomFlatColors from 'random-flat-colors';
 
 @Component({
   selector: 'app-location-search',
@@ -30,8 +31,17 @@ export class LocationSearchComponent implements OnInit {
       distinctUntilChanged(),
 
       /* Switch to new observable everytime the term changes */
-      switchMap((term: String) => this.weatherService.searchLocation(term))
+      switchMap((term: String) => this.weatherService.searchLocation(term)
+        .toPromise()
+        .then(response => {
+          response.forEach(item => {
+            item.color = randomFlatColors()
+          })
+          return response
+        })
+      )
     )
   }
+
 
 }

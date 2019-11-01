@@ -25,6 +25,7 @@
     "chart.js": "^2.8.0",
     "karma-vivaldi-launcher": "0.0.1",
     "momentjs": "^2.0.0",
+    "random-flat-colors": "^1.0.6",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",

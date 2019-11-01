@@ -5,20 +5,13 @@
     </mat-form-field>
   </div>
 
-  <div fxLayout="row">
-    <mat-nav-list>
-      <mat-list-item *ngFor="let location of locations$ | async">
-        <mat-icon fontSet="fa" fontIcon="fa-city"></mat-icon>
-        <a [routerLink]="[ '/dailyForecast', location.woeid ]">
-          {{location.title}}, {{location.location_type}}
-        </a>
-        <mat-divider [vertical]="true" style="height: 5em;">
-        </mat-divider>
-        <button mat-icon-button>
-          <mat-icon style="color:green" fontSet="fa" fontIcon="fa-plus-circle"></mat-icon>
-        </button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-    </mat-nav-list>
-  </div>
+  <mat-grid-list cols="5" rowHeigth="100px">
+    <mat-grid-tile *ngFor="let location of locations$ | async" [style.background]="location.color">
+      <a [routerLink]="[ '/dailyForecast', location.woeid ]">
+        <mat-grid-tile-footer>
+          {{location.title}}
+        </mat-grid-tile-footer>
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
