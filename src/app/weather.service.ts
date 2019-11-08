@@ -12,7 +12,6 @@ import { Forecast } from './domain/forecast';
 export class WeatherService {
 
   private climaUrl = "http://localhost:4200/clima/location/"
-  private staticUrl = "http://localhost:4200/svg/"
 
   constructor(private httpClient: HttpClient) { }
 

@@ -3,7 +3,6 @@ import { Weather, SVG_URL } from '../domain/weather';
 import { WeatherService } from '../weather.service';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
-import { WeatherLocation } from '../domain/WeatherLocation';
 
 @Component({
   selector: 'app-daily-weather',
@@ -13,7 +12,7 @@ import { WeatherLocation } from '../domain/WeatherLocation';
 export class DailyWeatherComponent implements OnInit {
 
   public weathers: Weather[]
-  public locationParent: WeatherLocation
+  public parentLoc: string
 
   constructor(public weatherService: WeatherService,
     public route: ActivatedRoute) { }
@@ -29,11 +28,13 @@ export class DailyWeatherComponent implements OnInit {
       .then(response => {        
         this.weathers = response.consolidated_weather 
         this.weathers.map(item => {
+          item.normalizeWeather()
           item.max_temp = Math.round(item.max_temp * 10) / 10
           item.min_temp = Math.round(item.min_temp * 10) / 10
           item.created = moment(item.created).format('DD/MM/YYYY')
           item.applicable_date = moment(item.applicable_date).format('DD/MM/YYYY')
           item.weather_svg = SVG_URL + item.weather_state_abbr + '.svg'
+          this.parentLoc = item.title
         })
       })
       .catch(e => { console.log(e.message) })

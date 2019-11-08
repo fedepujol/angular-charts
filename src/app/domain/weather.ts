@@ -7,6 +7,7 @@ export class Weather {
     public weather_state_name: string
     public weather_state_abbr: string
     public wind_direction_compass: string
+    public title: string
     public created: string
     public applicable_date: string
     public min_temp: number
